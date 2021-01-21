@@ -1,0 +1,94 @@
+.Nav--main {
+  .Nav-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .Nav-item:not(:last-child) {
+    margin-right: rem(35px); 
+  }
+
+  .Nav-link {
+    color: $white;
+    font-weight: 6500;
+    text-decoration: none;
+    transition: 0.4s all;
+    text-transform: lowercase;
+    position: relative;
+
+    &:before {
+      @include position(absolute, $top: rem(47px));
+      @include dimensions(100%, rem(3px));
+      background-color: $cc-blue--light;
+      opacity: 0;
+      content: "";
+      transition: 0.4s all;
+    }
+
+    &:hover {
+      color: $cc-blue--light;
+    }
+
+    &:hover:before {
+      @include position(absolute, $top: rem(47px));
+      @include dimensions(100%, rem(3px));
+      content: "";
+      opacity: 1;
+      background-color: $cc-blue--light;
+    }
+
+    &.is-active {
+      color: $cc-blue--light;
+    }
+    &.is-active:before {
+      @include position(absolute, $top: rem(47px));
+      @include dimensions(100%, rem(3px));
+      content: "";
+      opacity: 1;
+      background-color: $cc-blue--light;
+    }
+  }
+
+  .Nav-link--contact {
+    display: inline-block;
+    padding: rem(5px) rem(15px);
+    background: $cc-blue--light;
+    color: $white;
+
+    &.is-active {
+      background: $cc-blue--light;
+      color: $white;
+    }
+
+    &:hover {
+      background: $cc-blue--extraLight;
+      color: $cc-blue--dark;
+    }
+
+    &:before {
+      @include position(absolute, $top: rem(54px), $left: 0);
+      @include dimensions(100%, rem(3px));
+      content: "";
+      opacity: 0;
+      background-color: $cc-blue--light;
+    }
+
+    &:hover:before {
+      @include position(absolute, $top: rem(54px), $left: 0);
+      @include dimensions(100%, rem(3px));
+      content: "";
+      opacity: 1;
+      background-color: $cc-blue--light;
+    }
+
+    &.is-active:before {
+      @include position(absolute, $top: rem(54px), $left: 0);
+      @include dimensions(100%, rem(3px));
+      content: "";
+      opacity: 1;
+      background-color: $cc-blue--light;
+    }
+  }
+}

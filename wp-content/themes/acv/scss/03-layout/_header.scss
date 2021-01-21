@@ -1,0 +1,19 @@
+.Header {
+  height: $header-height;
+  background: $header-bg-color;
+
+  > .container {
+    height: 100%;
+
+    > .row {
+      height: 100%;
+    }
+  }
+
+  &-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+  }
+}
