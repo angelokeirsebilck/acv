@@ -1,4 +1,33 @@
-.Nav {
+.Navigation {
+
+  &-body{
+
+    @include media-breakpoint-down(md) {
+      position: fixed;
+      // top: calc(#{$header-height} + 46px);
+      // top: -100%;
+      height: calc( 100vh - #{$header-height});
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      transition: opacity,visibility .2s linear;
+      background-color: $cc-blue;
+      flex-direction: column;
+      // padding: 24px;
+      display: flex;
+      justify-content: center;
+
+      // html:not(.show-nav) & {
+      //   opacity: 0;
+      //   visibility: hidden;
+      // }
+
+      body:not(.admin-bar) & {
+        top: $header-height;
+      }
+    }
+  }
 
   .Nav-list {
     margin: 0;

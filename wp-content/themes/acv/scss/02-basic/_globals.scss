@@ -3,6 +3,14 @@ body {
   font-family: $font-inter;
 }
 
+body.admin-bar .Nav--main{
+
+  @include media-breakpoint-down(md){
+    transform: translateY(-23px);
+  }
+
+}
+
 .swiper-container {
   width: 600px;
   height: 300px;

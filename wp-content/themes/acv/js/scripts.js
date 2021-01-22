@@ -1,7 +1,10 @@
 import '../scss/style.scss';
 
-// Vendor modules
+// Vendor Scripts
 import './modules/slider';
+
+// Scripts
+import './modules/nav';
 
 console.log('bundle worked');
 

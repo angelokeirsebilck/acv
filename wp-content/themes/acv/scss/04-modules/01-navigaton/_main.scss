@@ -1,94 +1,150 @@
 .Nav--main {
-  .Nav-list {
+
+ 
+
+  .menu {
+    flex-direction: column;
     list-style-type: none;
     display: flex;
-    flex-direction: row;
     align-items: center;
+    margin: 0; 
+    padding: 0;
+
+    @include media-breakpoint-up(md){
+      flex-direction: row;
+    }
   }
 
-  .Nav-item:not(:last-child) {
-    margin-right: rem(35px); 
+  .menu-item:not(:last-child) {
+    margin-bottom: rem(35px);
+
+    @media (orientation: landscape) {
+      margin-bottom: rem(15px);
+    } 
+
+    @include media-breakpoint-up(md){
+      margin-right: rem(35px);
+      margin-bottom: 0;
+    }
   }
 
-  .Nav-link {
+  .menu-item:last-of-type{
+    a {
+      display: inline-block;
+
+      @include media-breakpoint-up(md){
+        padding: rem(5px) rem(15px);
+        background: $cc-blue--light;
+        color: $white;
+
+        &.current-menu-item {
+          background: $cc-blue--light;
+          color: $white;
+        }
+    
+        &:hover {
+          background: $cc-blue--extraLight;
+          color: $cc-blue--dark;
+        }
+
+        &:before {
+          @include position(absolute, $top: rem(54px), $left: 0);
+          @include dimensions(100%, rem(3px));
+          content: "";
+          opacity: 0;
+          background-color: $cc-blue--light;
+        }
+    
+        &:hover:before {
+          @include position(absolute, $top: rem(54px), $left: 0);
+          @include dimensions(100%, rem(3px));
+          content: "";
+          opacity: 1;
+          background-color: $cc-blue--light;
+        }
+    
+        &.current-menu-item:before {
+          @include position(absolute, $top: rem(54px), $left: 0);
+          @include dimensions(100%, rem(3px));
+          content: "";
+          opacity: 1;
+          background-color: $cc-blue--light;
+        }
+      }
+    }
+  }
+  .current-menu-item:last-of-type a:before{
+    position: relative;
+
+    @include media-breakpoint-up(md){
+      @include position(absolute, $top: rem(54px), $left: 0);
+      @include dimensions(100%, rem(3px));
+      content: "";
+      opacity: 1;
+      background-color: $cc-blue--light;
+    }
+  }
+
+  .current-menu-item a:before{
+    position: relative;
+
+    @include media-breakpoint-up(md){
+      @include position(absolute, $top: rem(47px));
+      @include dimensions(100%, rem(3px));
+      content: "";
+      opacity: 1;
+      background-color: $cc-blue--light;
+    }
+  }
+
+  .current-menu-item a{
+    color: $cc-blue--light;
+  }
+
+  a {
     color: $white;
-    font-weight: 6500;
+    font-weight: 500;
     text-decoration: none;
     transition: 0.4s all;
     text-transform: lowercase;
     position: relative;
+    font-size: rem(24px);
 
-    &:before {
-      @include position(absolute, $top: rem(47px));
-      @include dimensions(100%, rem(3px));
-      background-color: $cc-blue--light;
-      opacity: 0;
-      content: "";
-      transition: 0.4s all;
+    @include media-breakpoint-up(md){
+      font-size: rem(16px);
+
+      &:before {
+        @include position(absolute, $top: rem(47px));
+        @include dimensions(100%, rem(3px));
+        background-color: $cc-blue--light;
+        opacity: 0;
+        content: "";
+        transition: 0.4s all;
+      }
+  
+      &.current-menu-item:before {
+        @include position(absolute, $top: rem(47px));
+        @include dimensions(100%, rem(3px));
+        content: "";
+        opacity: 1;
+        background-color: $cc-blue--light;
+      }
+  
+      &:hover:before {
+        @include position(absolute, $top: rem(47px));
+        @include dimensions(100%, rem(3px));
+        content: "";
+        opacity: 1;
+        background-color: $cc-blue--light;
+      }
     }
 
     &:hover {
       color: $cc-blue--light;
     }
 
-    &:hover:before {
-      @include position(absolute, $top: rem(47px));
-      @include dimensions(100%, rem(3px));
-      content: "";
-      opacity: 1;
-      background-color: $cc-blue--light;
-    }
-
-    &.is-active {
+    &.current-menu-item {
       color: $cc-blue--light;
-    }
-    &.is-active:before {
-      @include position(absolute, $top: rem(47px));
-      @include dimensions(100%, rem(3px));
-      content: "";
-      opacity: 1;
-      background-color: $cc-blue--light;
-    }
-  }
-
-  .Nav-link--contact {
-    display: inline-block;
-    padding: rem(5px) rem(15px);
-    background: $cc-blue--light;
-    color: $white;
-
-    &.is-active {
-      background: $cc-blue--light;
-      color: $white;
-    }
-
-    &:hover {
-      background: $cc-blue--extraLight;
-      color: $cc-blue--dark;
-    }
-
-    &:before {
-      @include position(absolute, $top: rem(54px), $left: 0);
-      @include dimensions(100%, rem(3px));
-      content: "";
-      opacity: 0;
-      background-color: $cc-blue--light;
-    }
-
-    &:hover:before {
-      @include position(absolute, $top: rem(54px), $left: 0);
-      @include dimensions(100%, rem(3px));
-      content: "";
-      opacity: 1;
-      background-color: $cc-blue--light;
-    }
-
-    &.is-active:before {
-      @include position(absolute, $top: rem(54px), $left: 0);
-      @include dimensions(100%, rem(3px));
-      content: "";
-      opacity: 1;
-      background-color: $cc-blue--light;
     }
   }
 }

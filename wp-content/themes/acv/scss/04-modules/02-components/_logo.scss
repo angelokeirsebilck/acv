@@ -1,4 +1,8 @@
 .Logo {
   width: rem(100px);
   height: rem(100px);
+
+  &--header{
+    margin-right: auto;
+  }
 }
