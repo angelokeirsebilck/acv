@@ -21,6 +21,8 @@ node_modules/
 # ignore ai1wm-backups
 ai1wm-backups
 
+.env
+
 # ignore log files and databases
 *.log
 *.sql
