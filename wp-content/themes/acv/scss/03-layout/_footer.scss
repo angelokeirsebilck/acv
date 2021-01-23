@@ -1,0 +1,51 @@
+.Footer {
+    position: relative;
+    z-index: 1;
+    grid-area: footer;
+
+    &-top {
+        color: $white;
+        background: $footer-top-bg-color;
+        padding: rem(40px) 0;
+
+        > .container {
+            padding-left: $container-padding;
+            padding-right: $container-padding;
+        }
+    }
+
+    &-content {
+        @include font-size(14px);
+    }
+
+    &-subTitle {
+        @include font-size(20px);
+        color: $cc-blue--extraLight;
+        font-weight: 600;
+        margin-bottom: rem(25px);
+    }
+
+    &-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: rem(8px);
+    }
+
+    &-icon {
+        color: $cc-blue--extraLight;
+        align-self: flex-start;
+        transform: translateY(3px);
+        width: rem(25px);
+    }
+
+    &-link {
+        color: $white;
+        text-decoration: none;
+        transition: 0.4s all;
+
+        &:hover {
+            color: $cc-blue--extraLight;
+        }
+    }
+}

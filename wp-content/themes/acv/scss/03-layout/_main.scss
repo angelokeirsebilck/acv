@@ -1,0 +1,10 @@
+.Main {
+    position: relative;
+    z-index: 2;
+    grid-area: main;
+
+    > .container {
+        padding-left: $container-padding;
+        padding-right: $container-padding;
+    }
+}

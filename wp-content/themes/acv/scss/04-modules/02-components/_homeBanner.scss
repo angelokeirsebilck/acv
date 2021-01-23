@@ -1,4 +1,5 @@
 .HomeBanner {
   &-title {
+    @include font-size(4rem);
   }
 }

@@ -1,13 +1,13 @@
 .Header {
   height: $header-height;
   background: $header-bg-color;
+  grid-area: header;
+  z-index: 3;
 
   > .container {
     height: 100%;
-
-    > .row {
-      height: 100%;
-    }
+    padding-left: $container-padding;
+    padding-right: $container-padding;
   }
 
   &-container {

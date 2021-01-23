@@ -1,150 +1,147 @@
 .Nav--main {
+    .menu {
+        flex-direction: column;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
 
- 
-
-  .menu {
-    flex-direction: column;
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-    margin: 0; 
-    padding: 0;
-
-    @include media-breakpoint-up(md){
-      flex-direction: row;
+        @include media-breakpoint-up(md) {
+            flex-direction: row;
+        }
     }
-  }
 
-  .menu-item:not(:last-child) {
-    margin-bottom: rem(35px);
+    .menu-item:not(:last-child) {
+        margin-bottom: rem(35px);
 
-    @media (orientation: landscape) {
-      margin-bottom: rem(15px);
-    } 
+        @media (orientation: landscape) {
+            margin-bottom: rem(15px);
+        }
 
-    @include media-breakpoint-up(md){
-      margin-right: rem(35px);
-      margin-bottom: 0;
+        @include media-breakpoint-up(md) {
+            margin-right: rem(35px);
+            margin-bottom: 0;
+        }
     }
-  }
 
-  .menu-item:last-of-type{
+    .menu-item:last-of-type {
+        a {
+            display: inline-block;
+
+            @include media-breakpoint-up(md) {
+                padding: rem(5px) rem(15px);
+                background: $cc-blue--light;
+                color: $white;
+
+                &.current-menu-item {
+                    background: $cc-blue--extraLight;
+                    color: $white;
+                }
+
+                &:hover {
+                    background: $cc-blue--extraLight;
+                    color: $cc-blue--dark;
+                }
+
+                &:before {
+                    @include position(absolute, $top: rem(54px), $left: 0);
+                    @include dimensions(100%, rem(3px));
+                    content: '';
+                    opacity: 0;
+                    background-color: $cc-blue--extraLight;
+                }
+
+                &:hover:before {
+                    @include position(absolute, $top: rem(54px), $left: 0);
+                    @include dimensions(100%, rem(3px));
+                    content: '';
+                    opacity: 1;
+                    background-color: $cc-blue--extraLight;
+                }
+
+                &.current-menu-item:before {
+                    @include position(absolute, $top: rem(54px), $left: 0);
+                    @include dimensions(100%, rem(3px));
+                    content: '';
+                    opacity: 1;
+                    background-color: $cc-blue--extraLight;
+                }
+            }
+        }
+    }
+    .current-menu-item:last-of-type a:before {
+        position: relative;
+
+        @include media-breakpoint-up(md) {
+            @include position(absolute, $top: rem(54px), $left: 0);
+            @include dimensions(100%, rem(3px));
+            content: '';
+            opacity: 1;
+            background-color: $cc-blue--extraLight;
+        }
+    }
+
+    .current-menu-item a:before {
+        position: relative;
+
+        @include media-breakpoint-up(md) {
+            @include position(absolute, $top: rem(47px));
+            @include dimensions(100%, rem(3px));
+            content: '';
+            opacity: 1;
+            background-color: $cc-blue--extraLight;
+        }
+    }
+
+    .current-menu-item a {
+        color: $cc-blue--extraLight;
+    }
+
     a {
-      display: inline-block;
-
-      @include media-breakpoint-up(md){
-        padding: rem(5px) rem(15px);
-        background: $cc-blue--light;
         color: $white;
+        font-weight: 500;
+        text-decoration: none;
+        transition: 0.4s all;
+        text-transform: lowercase;
+        position: relative;
+        font-size: rem(24px);
+
+        @include media-breakpoint-up(md) {
+            font-size: rem(16px);
+
+            &:before {
+                @include position(absolute, $top: rem(47px));
+                @include dimensions(100%, rem(3px));
+                background-color: $cc-blue--extraLight;
+                opacity: 0;
+                content: '';
+                transition: 0.4s all;
+            }
+
+            &.current-menu-item:before {
+                @include position(absolute, $top: rem(47px));
+                @include dimensions(100%, rem(3px));
+                content: '';
+                opacity: 1;
+                background-color: $cc-blue--extraLight;
+            }
+
+            &:hover:before {
+                @include position(absolute, $top: rem(47px));
+                @include dimensions(100%, rem(3px));
+                content: '';
+                opacity: 1;
+                background-color: $cc-blue--extraLight;
+            }
+        }
+
+        &:hover {
+            color: $cc-blue--extraLight;
+        }
 
         &.current-menu-item {
-          background: $cc-blue--light;
-          color: $white;
+            color: $cc-blue--extraLight;
         }
-    
-        &:hover {
-          background: $cc-blue--extraLight;
-          color: $cc-blue--dark;
-        }
-
-        &:before {
-          @include position(absolute, $top: rem(54px), $left: 0);
-          @include dimensions(100%, rem(3px));
-          content: "";
-          opacity: 0;
-          background-color: $cc-blue--light;
-        }
-    
-        &:hover:before {
-          @include position(absolute, $top: rem(54px), $left: 0);
-          @include dimensions(100%, rem(3px));
-          content: "";
-          opacity: 1;
-          background-color: $cc-blue--light;
-        }
-    
-        &.current-menu-item:before {
-          @include position(absolute, $top: rem(54px), $left: 0);
-          @include dimensions(100%, rem(3px));
-          content: "";
-          opacity: 1;
-          background-color: $cc-blue--light;
-        }
-      }
     }
-  }
-  .current-menu-item:last-of-type a:before{
-    position: relative;
-
-    @include media-breakpoint-up(md){
-      @include position(absolute, $top: rem(54px), $left: 0);
-      @include dimensions(100%, rem(3px));
-      content: "";
-      opacity: 1;
-      background-color: $cc-blue--light;
-    }
-  }
-
-  .current-menu-item a:before{
-    position: relative;
-
-    @include media-breakpoint-up(md){
-      @include position(absolute, $top: rem(47px));
-      @include dimensions(100%, rem(3px));
-      content: "";
-      opacity: 1;
-      background-color: $cc-blue--light;
-    }
-  }
-
-  .current-menu-item a{
-    color: $cc-blue--light;
-  }
-
-  a {
-    color: $white;
-    font-weight: 500;
-    text-decoration: none;
-    transition: 0.4s all;
-    text-transform: lowercase;
-    position: relative;
-    font-size: rem(24px);
-
-    @include media-breakpoint-up(md){
-      font-size: rem(16px);
-
-      &:before {
-        @include position(absolute, $top: rem(47px));
-        @include dimensions(100%, rem(3px));
-        background-color: $cc-blue--light;
-        opacity: 0;
-        content: "";
-        transition: 0.4s all;
-      }
-  
-      &.current-menu-item:before {
-        @include position(absolute, $top: rem(47px));
-        @include dimensions(100%, rem(3px));
-        content: "";
-        opacity: 1;
-        background-color: $cc-blue--light;
-      }
-  
-      &:hover:before {
-        @include position(absolute, $top: rem(47px));
-        @include dimensions(100%, rem(3px));
-        content: "";
-        opacity: 1;
-        background-color: $cc-blue--light;
-      }
-    }
-
-    &:hover {
-      color: $cc-blue--light;
-    }
-
-    &.current-menu-item {
-      color: $cc-blue--light;
-    }
-  }
 }

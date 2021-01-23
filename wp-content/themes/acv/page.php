@@ -1,12 +1,15 @@
 <?php
 
   get_header();
-
-  while(have_posts()) {
-    the_post(); ?>
-
-      <?php }
-
-  get_footer();
-
 ?>
+<main class="Main">
+    <?php
+    while (have_posts()) {
+        the_post();
+        the_content();
+    }
+    ?>
+</main>
+
+<?php
+  get_footer();

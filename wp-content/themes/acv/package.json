@@ -16,6 +16,7 @@
   "dependencies": {
     "bootstrap": "^5.0.0-beta1",
     "gsap": "^3.6.0",
+    "rfs": "^9.0.3",
     "swiper": "^6.4.6"
   },
   "devDependencies": {

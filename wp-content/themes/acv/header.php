@@ -7,9 +7,9 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <header class="Header">
-        <div class="container">
-            <div class="row">
+    <div class="Wrapper">
+        <header class="Header">
+            <div class="container">
                 <div class="Header-container">
                     <div class="Logo Logo--header">
                     </div>
@@ -27,6 +27,6 @@
                         </nav>
                     </div>
                 </div>
+
             </div>
-        </div>
-    </header>
+        </header>
