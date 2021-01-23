@@ -16,7 +16,7 @@ wp-content/plugins/hello.php
 wp-content/themes/twenty*/
 
 # ignore composer dependency directories
-vendor/
+/vendor/
 
 # ignore ai1wm-backups
 ai1wm-backups
