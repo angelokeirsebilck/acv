@@ -4,16 +4,17 @@ function acv_files()
 {
     wp_enqueue_style('custom-google-fonts', '//fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swa');
     wp_enqueue_script('font-awesome', '//kit.fontawesome.com/6be973a3b4.js');
-  
-    //  Replace this later
-    // wp_enqueue_script('googleMap', '//maps.googleapis.com/maps/api/js?key=yourkeygoeshere', NULL, '1.0', true);
 
+    if (is_page('Contact')) {
+        wp_enqueue_script('googleMap', '//maps.googleapis.com/maps/api/js?key=AIzaSyCEFUT6eYl3dSYwnYZ1GmjsuAsXFpzYhUU', null, '1.0', false);
+    }
+    
     if (strstr($_SERVER['SERVER_NAME'], 'localhost')) {
         wp_enqueue_script('main-acv-js', 'http://localhost:3000/bundled.js', null, '1.0', true);
     } else {
         wp_enqueue_script('our-vendors-js', get_theme_file_uri('/dist/vendors.341aaff10eca5c044d32.js'), null, '1.0', true);
-        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.b578018fa036c5362680.js'), null, '1.0', true);
-        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.b578018fa036c5362680.css'));
+        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.c215518b52bb8b1d9f14.js'), null, '1.0', true);
+        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.c215518b52bb8b1d9f14.css'));
     }
 }
 

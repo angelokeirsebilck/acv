@@ -13,8 +13,8 @@
                                 <i class="fas fa-map-marker-alt Footer-icon"></i>
                             </div>
 
-                            <a href="https://maps.google.com/?q=Herenweg 21 8300 Knokke-Heist (Westkapelle) België"
-                                class="Footer-link">Herenweg 21 8300 Knokke-Heist (Westkapelle) België</a>
+                            <a href="https://maps.google.com/?q=<?php echo get_option('angelok_address') ?>"
+                                target="_blank" class="Footer-link"><?php echo get_option('angelok_address') ?></a>
                         </div>
                         <div class="Footer-item">
                             <div class="Footer-iconContainer">
@@ -66,7 +66,7 @@
                 &copy; <?php  echo date('Y');?>
                 <?php echo get_option('blogname') ?>
             </div>
-            <a href="<?php echo get_site_url() . '/privacy-policy' ?>" class="Footer-privacyPolicy"> Privacy Policy</a>
+            <a href="<?php echo get_site_url() . '/privacy-policy' ?>" class="Footer-privacyPolicy">Privacy Policy</a>
             <div class="Footer-angelok">
 
             </div>
@@ -74,6 +74,90 @@
     </div>
 </footer>
 </div class="Wrapper">
+<?php
+
+    if (is_page('Contact')) {
+        ?>
+<script>
+let geocoder = new google.maps.Geocoder();
+let map = new google.maps.Map(document.getElementById("GoogleMaps"), {
+    center: {
+        lat: -34.397,
+        lng: 150.644
+    },
+    zoom: 16,
+    styles: [{
+            "featureType": "all",
+            "stylers": [{
+                    "saturation": 0
+                },
+                {
+                    "hue": "#e7ecf0"
+                }
+            ]
+        },
+        {
+            "featureType": "road",
+            "stylers": [{
+                "saturation": -70
+            }]
+        },
+        {
+            "featureType": "transit",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "poi",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "water",
+            "stylers": [{
+                    "visibility": "simplified"
+                },
+                {
+                    "saturation": -60
+                }
+            ]
+        }
+    ]
+});
+
+const address = document.querySelector('.GoogleMaps-invisAddress').innerHTML;
+const
+    iconUrl =
+    "<?php echo get_theme_file_uri('/images/marker.svg'); ?>";
+
+var icon = {
+    url: iconUrl,
+    scaledSize: new google.maps.Size(30, 30),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(10, 25)
+}
+geocoder.geocode({
+    'address': address
+}, function(results, status) {
+    if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+        let marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location,
+            icon: icon
+        });
+    } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+    }
+});
+</script>
+
+<?php
+    }
+
+?>
 <?php wp_footer(); ?>
 </body>
 

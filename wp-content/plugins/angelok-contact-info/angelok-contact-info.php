@@ -58,6 +58,12 @@ function load_custom_wp_admin_style($hook)
 add_action('admin_enqueue_scripts', 'load_custom_wp_admin_style');
 
 // Phone
+function display_angelok_address_element() { ?>
+
+<input type="text" name="angelok_address" value="<?php echo get_option('angelok_address'); ?>" size="35">
+<?php }
+
+// Phone
 function display_angelok_phone_element() { ?>
 
 <input type="tel" name="angelok_phone" value="<?php echo get_option('angelok_phone'); ?>" size="35">
@@ -80,9 +86,11 @@ function my_settings_init()
         'contact-info'
     );
 
+    add_settings_field("angelok_address", "Adres", "display_angelok_address_element", "contact-info", "contact_info_setting_section");
     add_settings_field("angelok_phone", "Telefoon Nummer", "display_angelok_phone_element", "contact-info", "contact_info_setting_section");
     add_settings_field("angelok_fax", "Fax nummer", "display_angelok_fax_element", "contact-info", "contact_info_setting_section");
 
+    register_setting("contact_info_setting_section", "angelok_address");
     register_setting("contact_info_setting_section", "angelok_phone");
     register_setting("contact_info_setting_section", "angelok_fax");
 }
