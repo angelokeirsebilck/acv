@@ -61,6 +61,16 @@
         </div>
     </div>
     <div class="Footer-bottom">
+        <div class="container">
+            <div class="Footer-cp">
+                &copy; <?php  echo date('Y');?>
+                <?php echo get_option('blogname') ?>
+            </div>
+            <a href="<?php echo get_site_url() . '/privacy-policy' ?>" class="Footer-privacyPolicy"> Privacy Policy</a>
+            <div class="Footer-angelok">
+
+            </div>
+        </div>
     </div>
 </footer>
 </div class="Wrapper">

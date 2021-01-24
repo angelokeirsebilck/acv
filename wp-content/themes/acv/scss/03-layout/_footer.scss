@@ -14,6 +14,18 @@
         }
     }
 
+    &-bottom {
+        @include font-size(13px);
+        padding: rem(10px) 0;
+        color: $cc-blue--dark;
+        background: $footer-bottom-bg-color;
+        height: auto;
+
+        > .container {
+            display: flex;
+        }
+    }
+
     &-menu {
         margin-top: rem(20px);
 
@@ -65,6 +77,17 @@
 
         &:hover {
             color: $cc-blue--extraLight;
+        }
+    }
+
+    &-privacyPolicy {
+        margin-left: rem(10px);
+        color: $cc-blue--dark;
+        text-decoration: none;
+        transition: 0.4s all;
+
+        &:hover {
+            color: $cc-blue--light;
         }
     }
 }
