@@ -1,0 +1,28 @@
+.Nav--footer {
+    @include font-size(13px);
+
+    .menu {
+        flex-direction: column;
+        list-style-type: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu-item:not(:last-of-type) {
+        margin-bottom: rem(8px);
+    }
+    .menu-item {
+        transition: 0.4s all;
+
+        a {
+            color: $white;
+            text-decoration: none;
+            transition: 0.4s all;
+            text-transform: lowercase;
+            &:hover {
+                color: $cc-blue--extraLight;
+            }
+        }
+    }
+}

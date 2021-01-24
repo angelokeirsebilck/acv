@@ -1,0 +1,4 @@
+.invisible {
+    visibility: hidden;
+    @include position(absolute, $top: -10000%);
+}

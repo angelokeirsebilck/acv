@@ -14,8 +14,16 @@
         }
     }
 
+    &-menu {
+        margin-top: rem(20px);
+
+        @include media-breakpoint-up(sm) {
+            margin-top: 0;
+        }
+    }
+
     &-content {
-        @include font-size(14px);
+        @include font-size(13px);
     }
 
     &-subTitle {
@@ -25,18 +33,29 @@
         margin-bottom: rem(25px);
     }
 
+    &-fax {
+        color: $white;
+    }
+
     &-item {
         display: flex;
-        flex-direction: row;
-        align-items: center;
+        // flex-direction: row;
+        // align-items: center;
         margin-bottom: rem(8px);
+    }
+
+    &-iconContainer {
+        flex-basis: 1.5rem;
+        display: flex;
+        flex-direction: row;
+        flex-shrink: 0;
     }
 
     &-icon {
         color: $cc-blue--extraLight;
-        align-self: flex-start;
+        // align-self: flex-start;
         transform: translateY(3px);
-        width: rem(25px);
+        // width: rem(25px);
     }
 
     &-link {

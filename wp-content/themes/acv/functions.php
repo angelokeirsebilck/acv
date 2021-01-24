@@ -12,8 +12,8 @@ function acv_files()
         wp_enqueue_script('main-acv-js', 'http://localhost:3000/bundled.js', null, '1.0', true);
     } else {
         wp_enqueue_script('our-vendors-js', get_theme_file_uri('/dist/vendors.341aaff10eca5c044d32.js'), null, '1.0', true);
-        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.47751ba73d490d40c779.js'), null, '1.0', true);
-        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.47751ba73d490d40c779.css'));
+        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.284ab24961401a8470ab.js'), null, '1.0', true);
+        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.284ab24961401a8470ab.css'));
     }
 }
 
@@ -31,56 +31,8 @@ function acv_register_menus()
     register_nav_menus(
         array(
       'header-menu' => __('Header Menu'),
+      'footer-menu' => __('Footer Menu')
      )
     );
 }
 add_action('init', 'acv_register_menus');
-
-function theme_settings_page()
-{
-    ?>
-<div class="wrap">
-    <h1>Contact Info</h1>
-    <p>Deze informatie word over gans de website gebruikt.</p>
-    <form method="post" action="options.php">
-        <?php
-                    settings_fields("section");
-    do_settings_sections("theme-options");
-    submit_button(); ?>
-    </form>
-</div>
-
-<?php
-}
-
-// Phone
-function display_support_phone_element() { ?>
-
-<input type="tel" name="support_phone" value="<?php echo get_option('support_phone'); ?>" size="35">
-<?php }
-
-// Fax
-function display_support_fax_element() { ?>
-
-<input type="tel" name="support_fax" value="<?php echo get_option('support_fax'); ?>" size="35">
-<?php }
-
-function display_custom_info_fields()
-{
-    add_settings_section("section", null, null, "theme-options");
-
-    add_settings_field("support_phone", "Telefoon Nummer", "display_support_phone_element", "theme-options", "section");
-    add_settings_field("support_fax", "Fax nummer", "display_support_fax_element", "theme-options", "section");
-
-    register_setting("section", "support_phone");
-    register_setting("section", "support_fax");
-}
-
-add_action("admin_init", "display_custom_info_fields");
-
-function add_custom_info_menu_item()
-{
-    add_options_page("Contact Info", "Contact Info", "manage_options", "contact-info", "theme_settings_page");
-}
-
-add_action("admin_menu", "add_custom_info_menu_item");

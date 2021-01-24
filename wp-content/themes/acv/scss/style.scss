@@ -18,6 +18,9 @@
 @import './01-helpers/03-mixins/dimensions';
 @import './01-helpers/03-mixins/rfs';
 
+// Helpers - Utilities
+@import './01-helpers/04-utilities/display';
+
 // Basic
 @import './02-basic/globals';
 @import './02-basic/structure';
@@ -30,6 +33,7 @@
 // Modules - Navigation
 @import './04-modules/01-navigaton/navigation';
 @import './04-modules/01-navigaton/main';
+@import './04-modules/01-navigaton/footer';
 
 // Modules - Components
 @import './04-modules/02-components/logo';
