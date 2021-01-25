@@ -1,5 +1,16 @@
 .HomeBanner {
-  &-title {
-    @include font-size(4rem);
-  }
+    height: calc(100vh - #{$header-height});
+
+    &-title {
+        @include font-size(45px);
+    }
+
+    &-linkContainer {
+        margin-bottom: rem(10px);
+    }
+
+    &-linksContainer {
+        display: flex;
+        flex-direction: column;
+    }
 }

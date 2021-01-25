@@ -1,15 +1,8 @@
 <?php get_header(); ?>
 <main class="Main">
-    <div class="container">
-        <?php
-    while (have_posts()) {
-        the_post();
-        the_content();
-    }
-    
-    ?>
-        <h1 class="HomeBanner-title">Dit is een fluid title.</h1>
-    </div>
+    <h1 class="invisible">Main</h1>
+    <?php get_template_part('template-parts/home/homeBanner') ?>
+
 </main>
 
 <?php get_footer();

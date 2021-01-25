@@ -1,0 +1,73 @@
+.Button {
+    cursor: pointer;
+    display: inline-block;
+    user-select: none;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    padding: rem(6px) rem(15px);
+    transition: 0.4s all;
+    font-weight: 500;
+    border: 2px solid transparent;
+
+    &--primary {
+        background-color: $cc-blue;
+        color: $white;
+
+        .Button-icon {
+            margin-left: rem(8px);
+            height: rem(20px);
+            fill: $white;
+        }
+
+        &:hover {
+            background-color: $cc-blue--light;
+            color: $white;
+
+            .Button-icon {
+                animation: bounceRight 0.7s infinite;
+            }
+        }
+    }
+
+    &-icon {
+        margin-left: rem(8px);
+        height: rem(20px);
+        fill: $white;
+    }
+
+    &--secondary {
+        background-color: $white;
+        color: $cc-blue;
+        border: 2px solid $cc-blue;
+
+        .Button-icon {
+            margin-left: rem(8px);
+            height: rem(20px);
+            fill: $cc-blue;
+            transition: 0.4s all;
+        }
+
+        &:hover {
+            // color: $cc-blue--light;
+            // border: 1px solid $cc-blue--light;
+            background-color: $cc-blue--light;
+            color: $white;
+            border: 2px solid $cc-blue--light;
+
+            .Button-icon {
+                fill: $white;
+                animation: bounceRight 0.7s infinite;
+            }
+        }
+    }
+}
+
+@keyframes bounceRight {
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
