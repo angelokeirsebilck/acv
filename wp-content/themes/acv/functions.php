@@ -2,7 +2,21 @@
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
-// Add Content Home custom fields to front page
+// Add Content custom fields to certain pages
+add_action('carbon_fields_register_fields', 'angelok_content');
+function angelok_content()
+{
+    $kostenEnErelonenId = get_page_by_path('kosten-erelonen')->ID;
+
+    Container::make('post_meta', 'Banner')
+    ->where( 'post_type', '=', 'page' )
+    ->where( 'post_id', '=', $kostenEnErelonenId)
+    ->add_fields(array(
+        Field::make( 'rich_text', 'content_text', __( 'Tekst' ) )->set_required(true)
+    ));
+}
+
+// Add Banner custom fields to certain pages
 add_action('carbon_fields_register_fields', 'angelok_banner_image');
 function angelok_banner_image()
 {
@@ -95,8 +109,8 @@ function acv_files()
             wp_enqueue_script('home-js', get_theme_file_uri('/dist/home.1841d1211597d32d4fc6.js'), null, '1.0', true);
         }
         wp_enqueue_script('our-vendors-js', get_theme_file_uri('/dist/vendors.f481b3f263654a29dd00.js'), null, '1.0', true);
-        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.43a7607e476e18600f69.js'), null, '1.0', true);
-        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.43a7607e476e18600f69.css'));
+        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.ff7052508a5d8392caad.js'), null, '1.0', true);
+        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.ff7052508a5d8392caad.css'));
     }
 }
 
@@ -107,6 +121,7 @@ function acv_features()
     add_theme_support('title-tag');
     add_image_size('homeBanner', 720, 500, true,'center');
     add_image_size('homeContent', 650, 500, true,'center');
+    add_image_size('banner', 1200, 500, true,'center');
 }
 
 add_action('after_setup_theme', 'acv_features');
