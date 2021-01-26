@@ -13,24 +13,21 @@
                                 <i class="fas fa-map-marker-alt Footer-icon"></i>
                             </div>
 
-                            <a href="https://maps.google.com/?q=<?php echo get_option('angelok_address') ?>"
-                                target="_blank" class="Footer-link"><?php echo get_option('angelok_address') ?></a>
+                            <a href="https://maps.google.com/?q=<?php echo get_option('angelok_address') ?>" target="_blank" class="Footer-link"><?php echo get_option('angelok_address') ?></a>
                         </div>
                         <div class="Footer-item">
                             <div class="Footer-iconContainer">
                                 <i class="fas fa-envelope Footer-icon"></i>
                             </div>
 
-                            <a href="mailto:<?php echo get_option('admin_email') ?>"
-                                class="Footer-link"><?php echo get_option('admin_email') ?></a>
+                            <a href="mailto:<?php echo get_option('admin_email') ?>" class="Footer-link"><?php echo get_option('admin_email') ?></a>
                         </div>
                         <?php if (strlen(get_option('angelok_phone')) > 0) {?>
                         <div class="Footer-item">
                             <div class="Footer-iconContainer">
                                 <i class="fas fa-phone-alt Footer-icon"></i>
                             </div>
-                            <a href="tel:<?php echo get_option('angelok_phone') ?>"
-                                class="Footer-link"><?php echo get_option('angelok_phone') ?></a>
+                            <a href="tel:<?php echo get_option('angelok_phone') ?>" class="Footer-link"><?php echo get_option('angelok_phone') ?></a>
                         </div>
                         <?php } ?>
                         <?php if (strlen(get_option('angelok_fax')) > 0) {?>
@@ -79,79 +76,79 @@
     if (is_page('Contact')) {
         ?>
 <script>
-let geocoder = new google.maps.Geocoder();
-let map = new google.maps.Map(document.getElementById("GoogleMaps"), {
-    center: {
-        lat: -34.397,
-        lng: 150.644
-    },
-    zoom: 16,
-    styles: [{
-            "featureType": "all",
-            "stylers": [{
-                    "saturation": 0
-                },
-                {
-                    "hue": "#e7ecf0"
-                }
-            ]
+    let geocoder = new google.maps.Geocoder();
+    let map = new google.maps.Map(document.getElementById("GoogleMaps"), {
+        center: {
+            lat: -34.397,
+            lng: 150.644
         },
-        {
-            "featureType": "road",
-            "stylers": [{
-                "saturation": -70
-            }]
-        },
-        {
-            "featureType": "transit",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "poi",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "water",
-            "stylers": [{
-                    "visibility": "simplified"
-                },
-                {
-                    "saturation": -60
-                }
-            ]
-        }
-    ]
-});
+        zoom: 16,
+        styles: [{
+                "featureType": "all",
+                "stylers": [{
+                        "saturation": 0
+                    },
+                    {
+                        "hue": "#e7ecf0"
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "stylers": [{
+                    "saturation": -70
+                }]
+            },
+            {
+                "featureType": "transit",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            },
+            {
+                "featureType": "poi",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            },
+            {
+                "featureType": "water",
+                "stylers": [{
+                        "visibility": "simplified"
+                    },
+                    {
+                        "saturation": -60
+                    }
+                ]
+            }
+        ]
+    });
 
-const address = document.querySelector('.GoogleMaps-invisAddress').innerHTML;
-const
-    iconUrl =
-    "<?php echo get_theme_file_uri('/images/marker.svg'); ?>";
+    const address = document.querySelector('.GoogleMaps-invisAddress').innerHTML;
+    const
+        iconUrl =
+        "<?php echo get_theme_file_uri('/images/marker.svg'); ?>";
 
-var icon = {
-    url: iconUrl,
-    scaledSize: new google.maps.Size(30, 30),
-    origin: new google.maps.Point(0, 0),
-    anchor: new google.maps.Point(10, 25)
-}
-geocoder.geocode({
-    'address': address
-}, function(results, status) {
-    if (status == 'OK') {
-        map.setCenter(results[0].geometry.location);
-        let marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location,
-            icon: icon
-        });
-    } else {
-        alert('Geocode was not successful for the following reason: ' + status);
+    var icon = {
+        url: iconUrl,
+        scaledSize: new google.maps.Size(30, 30),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(10, 25)
     }
-});
+    geocoder.geocode({
+        'address': address
+    }, function(results, status) {
+        if (status == 'OK') {
+            map.setCenter(results[0].geometry.location);
+            let marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location,
+                icon: icon
+            });
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+    });
 </script>
 
 <?php

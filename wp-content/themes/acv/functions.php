@@ -2,17 +2,48 @@
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
+// Add Content Home custom fields to front page
+add_action('carbon_fields_register_fields', 'angelok_banner_image');
+function angelok_banner_image()
+{
+    $praktijkgebeidenId = get_page_by_path('praktijkgebieden')->ID;
+    $kostenEnErelonenId = get_page_by_path('kosten-erelonen')->ID;
+
+    Container::make('post_meta', 'Banner')
+    ->where( 'post_type', '=', 'page' )
+    ->where( 'post_id', '=', $praktijkgebeidenId)
+    ->or_where( 'post_id', '=', $kostenEnErelonenId)
+    ->add_fields(array(
+        Field::make( 'image', 'banner_image', __( 'Afbeelding' ) )->set_required(true)
+    ));
+}
+
+// Add Content Home custom fields to front page
+add_action('carbon_fields_register_fields', 'angelok_content_home_group');
+function angelok_content_home_group()
+{
+    Container::make('post_meta', 'Home Content')
+    ->where('post_id', '=', get_option('page_on_front'))
+    ->add_fields(array(
+        Field::make('text', 'home_content_title', __('Titel'))
+            ->set_required((true)),
+        Field::make('rich_text', 'home_content_text', __('Tekst'))
+        ->set_required((true)),
+        Field::make( 'image', 'home_content_image', __( 'Afbeelding' ) )
+    ));
+}
+
 // Add Home Banner custom fields to front page
-add_action('carbon_fields_register_fields', 'crb_attach_theme_options');
-function crb_attach_theme_options()
+add_action('carbon_fields_register_fields', 'angelok_homebanner_group');
+function angelok_homebanner_group()
 {
     Container::make('post_meta', 'Home Banner')
     ->where('post_id', '=', get_option('page_on_front'))
     ->add_fields(array(
-        Field::make('textarea', 'homebanner_title', __('Title'))
+        Field::make('textarea', 'homebanner_title', __('Titel'))
             ->set_required((true))
             ->set_help_text('Gebruik &lt;br&gt; in de tekst om tekst op de volgende regel te plaatsen.'),
-        Field::make('media_gallery', 'homebanner_images', __('Afbeeldingen'))->set_required(true),
+        Field::make('media_gallery', 'homebanner_images', __('Afbeeldingen'))->set_required(true)->set_duplicates_allowed(false),
         Field::make('complex', 'homebanner_links')
             ->add_fields('pagina_link', array(
                 Field::make('text', 'homebanner_pagina_link_tekst'),
@@ -51,11 +82,21 @@ function acv_files()
     }
     
     if (strstr($_SERVER['SERVER_NAME'], 'localhost')) {
-        wp_enqueue_script('main-acv-js', 'http://localhost:3000/bundled.js', null, '1.0', true);
+        // Bug in webpack when you use multiple entry points so we need config.optimization: runtimeChunk: single
+        // This runtime.js makes sure there is only one runtime so Hot Reload Module works.
+        wp_enqueue_script('runtime-acv-js', 'http://localhost:3000/runtime.js', null, '1.0', true);
+        wp_enqueue_script('main-acv-js', 'http://localhost:3000/scripts.js', null, '1.0', true);
+        if (is_front_page()) {
+            wp_enqueue_script('home-acv-js', 'http://localhost:3000/home.js', null, '1.0', true);
+        }
+        
     } else {
-        wp_enqueue_script('our-vendors-js', get_theme_file_uri('/dist/vendors.341aaff10eca5c044d32.js'), null, '1.0', true);
-        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.1bfdddad0dd94d498b42.js'), null, '1.0', true);
-        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.1bfdddad0dd94d498b42.css'));
+        if (is_front_page()) {
+            wp_enqueue_script('home-js', get_theme_file_uri('/dist/home.1841d1211597d32d4fc6.js'), null, '1.0', true);
+        }
+        wp_enqueue_script('our-vendors-js', get_theme_file_uri('/dist/vendors.f481b3f263654a29dd00.js'), null, '1.0', true);
+        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.43a7607e476e18600f69.js'), null, '1.0', true);
+        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.43a7607e476e18600f69.css'));
     }
 }
 
@@ -64,6 +105,8 @@ add_action('wp_enqueue_scripts', 'acv_files');
 function acv_features()
 {
     add_theme_support('title-tag');
+    add_image_size('homeBanner', 720, 500, true,'center');
+    add_image_size('homeContent', 650, 500, true,'center');
 }
 
 add_action('after_setup_theme', 'acv_features');

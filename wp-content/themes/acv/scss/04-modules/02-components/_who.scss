@@ -1,0 +1,43 @@
+.Who {
+    .row {
+        @include media-breakpoint-down(md) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    &-title {
+        @include font-size($heading-size-1);
+        position: relative;
+
+        &:before {
+            display: block;
+            content: '';
+            @include position(absolute, $bottom: -10px, $left: 0);
+            background: $cc-blue--light;
+            height: 2px;
+            width: 75px;
+        }
+    }
+
+    &-textContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &-text {
+        margin-top: rem(15px);
+
+        p:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    &-textContainer {
+        margin-bottom: rem(20px);
+
+        @include media-breakpoint-up(md) {
+            margin-bottom: 0;
+        }
+    }
+}

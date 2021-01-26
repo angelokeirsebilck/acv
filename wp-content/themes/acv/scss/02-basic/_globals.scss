@@ -1,22 +1,30 @@
-html{
-  height: 100%;
+html {
+    height: 100%;
 }
 
-html.show-nav body{
-  overflow: hidden;
+html.show-nav body {
+    overflow: hidden;
 }
 
 body {
-  height: 100%;
-  color: $cc-blue--dark;
-  background: $white;
-  font-family: $font-inter;
+    height: 100%;
+    color: $cc-blue--dark;
+    background: $white;
+    font-family: $font-inter;
 }
 
-body.admin-bar .Nav--main{
+body.admin-bar .Nav--main {
+    @include media-breakpoint-down(md) {
+        transform: translateY(-23px);
+    }
+}
 
-  @include media-breakpoint-down(md){
-    transform: translateY(-23px);
-  }
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+}
 
+.container-padding {
+    padding-left: $container-padding;
+    padding-right: $container-padding;
 }

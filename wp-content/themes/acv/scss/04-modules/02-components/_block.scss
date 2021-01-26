@@ -1,0 +1,15 @@
+.Block {
+    padding-top: rem(30px);
+    padding-bottom: rem(30px);
+
+    @include media-breakpoint-up(md) {
+        padding-top: rem(60px);
+        padding-bottom: rem(60px);
+    }
+
+    &--homeBanner {
+        @include media-breakpoint-up(md) {
+            padding: 0;
+        }
+    }
+}

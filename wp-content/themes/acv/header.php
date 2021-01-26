@@ -12,7 +12,7 @@
     <div class="Wrapper">
         <header class="Header">
             <h1 class="invisible">Header </h1>
-            <div class="container">
+            <div class="container px-4">
                 <div class="Header-container">
                     <div class="Logo Logo--header">
                     </div>

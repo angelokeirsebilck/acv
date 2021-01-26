@@ -1,6 +1,19 @@
 .HomeBanner {
-    height: calc(100vh - #{$header-height});
+    @include media-breakpoint-up(md) {
+        height: calc(100vh - #{$header-height});
+    }
 
+    > .container {
+        @include media-breakpoint-up(md) {
+            height: 100%;
+        }
+
+        > .row {
+            @include media-breakpoint-up(md) {
+                height: 100%;
+            }
+        }
+    }
     &-title {
         @include font-size(45px);
     }
@@ -12,5 +25,50 @@
     &-linksContainer {
         display: flex;
         flex-direction: column;
+    }
+
+    &-textContent {
+        margin-bottom: rem(20px);
+    }
+
+    // &-textContent,
+    // &-images {
+    //     padding-right: rem(20px);
+    //     padding-left: rem(20px);
+    // }
+
+    &-textContent,
+    &-images {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    &-slider {
+        overflow: hidden;
+        position: relative;
+    }
+
+    &-sliderContainer {
+        position: relative;
+    }
+
+    .swiper-pagination {
+        @include position(absolute, $bottom: -25px, $left: 50%);
+        transform: translateX(-50%);
+    }
+
+    .swiper-pagination-bullet {
+        background: $cc-blue;
+        margin-right: rem(5px);
+
+        &:focus {
+            outline: none;
+        }
     }
 }
