@@ -3,6 +3,24 @@ use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
 // Add Content custom fields to certain pages
+add_action('carbon_fields_register_fields', 'angelok_content_practice_area');
+function angelok_content_practice_area()
+{
+    $praktijkgebeidenId = get_page_by_path('praktijkgebieden')->ID;
+
+    Container::make('post_meta', 'Banner')
+    ->where( 'post_type', '=', 'page' )
+    ->where( 'post_id', '=', $praktijkgebeidenId)
+    ->add_fields(array(
+        Field::make('complex', 'angelok_content_practice_areas',__('Praktijkgebieden'))
+        ->add_fields('angelok_content_practice_areas',__('Praktijkgebied'), array(
+            Field::make('text', 'angelok_content_practice_area_name', __('Naam')),
+            Field::make('textarea', 'angelok_content_practice_area_description', __('Beschrijving')),
+        ))
+    ));
+}
+
+// Add Content custom fields to certain pages
 add_action('carbon_fields_register_fields', 'angelok_content');
 function angelok_content()
 {
@@ -94,6 +112,8 @@ function acv_files()
     if (is_page('Contact')) {
         wp_enqueue_script('googleMap', '//maps.googleapis.com/maps/api/js?key=AIzaSyCEFUT6eYl3dSYwnYZ1GmjsuAsXFpzYhUU', null, '1.0', false);
     }
+
+
     
     if (strstr($_SERVER['SERVER_NAME'], 'localhost')) {
         // Bug in webpack when you use multiple entry points so we need config.optimization: runtimeChunk: single
@@ -103,14 +123,20 @@ function acv_files()
         if (is_front_page()) {
             wp_enqueue_script('home-acv-js', 'http://localhost:3000/home.js', null, '1.0', true);
         }
+        if (is_page(13)) {
+            wp_enqueue_script('home-acv-js', 'http://localhost:3000/practiceArea.js', null, '1.0', true);
+        }
         
     } else {
         if (is_front_page()) {
             wp_enqueue_script('home-js', get_theme_file_uri('/dist/home.1841d1211597d32d4fc6.js'), null, '1.0', true);
         }
-        wp_enqueue_script('our-vendors-js', get_theme_file_uri('/dist/vendors.f481b3f263654a29dd00.js'), null, '1.0', true);
-        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.ff7052508a5d8392caad.js'), null, '1.0', true);
-        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.ff7052508a5d8392caad.css'));
+        if (is_page(13)) {
+            wp_enqueue_script('home-js', get_theme_file_uri('/dist/practiceArea.61780116bdf8efa1fafc.js'), null, '1.0', true);
+        }
+        wp_enqueue_script('our-vendors-js', get_theme_file_uri('/dist/vendors.63f1a2825a1a4259c198.js'), null, '1.0', true);
+        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.c02a96cd26b6e3d44537.js'), null, '1.0', true);
+        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.c02a96cd26b6e3d44537.css'));
     }
 }
 

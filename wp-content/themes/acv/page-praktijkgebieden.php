@@ -1,11 +1,7 @@
 <?php get_header(); ?>
 <main class="Main">
 <?php get_template_part('template-parts/banner') ?>
-    <div class="container px-4">
-    
-        <?php the_content();
-        ?>
-    </div>
+<?php get_template_part('template-parts/practice-areas/practiceArea') ?>
 </main>
 
 <?php get_footer();

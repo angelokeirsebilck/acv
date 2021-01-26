@@ -14,8 +14,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "bootstrap": "^5.0.0-beta1",
     "gsap": "^3.6.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "rfs": "^9.0.3",
     "swiper": "^6.4.6"
   },
