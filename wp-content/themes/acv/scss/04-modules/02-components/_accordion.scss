@@ -1,0 +1,24 @@
+.Accordion {
+    &-header {
+        background: $cc-blue;
+        color: $white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    &-description {
+        height: auto;
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.4s all;
+
+        &--active {
+            max-height: 1000px;
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
