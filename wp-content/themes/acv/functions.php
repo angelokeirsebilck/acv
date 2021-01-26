@@ -12,7 +12,7 @@ function angelok_content_practice_area()
     ->where( 'post_type', '=', 'page' )
     ->where( 'post_id', '=', $praktijkgebeidenId)
     ->add_fields(array(
-        Field::make('complex', 'angelok_content_practice_areas',__('Praktijkgebieden'))
+        Field::make('complex', 'angelok_content_practice_areas',__('Praktijkgebieden'))->set_visible_in_rest_api( $visible = true )
         ->add_fields('angelok_content_practice_areas',__('Praktijkgebied'), array(
             Field::make('text', 'angelok_content_practice_area_name', __('Naam')),
             Field::make('textarea', 'angelok_content_practice_area_description', __('Beschrijving')),
@@ -102,6 +102,9 @@ function crb_load()
     require_once('vendor/autoload.php');
     \Carbon_Fields\Carbon_Fields::boot();
 }
+
+// Include custom routes
+require get_theme_file_path('/inc/practice-area-route.php');
 
 
 function acv_files()
