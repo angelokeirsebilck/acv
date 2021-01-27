@@ -15,7 +15,7 @@ function angelok_content_practice_area()
         Field::make('complex', 'angelok_content_practice_areas',__('Praktijkgebieden'))->set_visible_in_rest_api( $visible = true )
         ->add_fields('angelok_content_practice_areas',__('Praktijkgebied'), array(
             Field::make('text', 'angelok_content_practice_area_name', __('Naam')),
-            Field::make('textarea', 'angelok_content_practice_area_description', __('Beschrijving')),
+            Field::make('rich_text', 'angelok_content_practice_area_description', __('Beschrijving')),
         ))
     ));
 }
@@ -26,7 +26,7 @@ function angelok_content()
 {
     $kostenEnErelonenId = get_page_by_path('kosten-erelonen')->ID;
 
-    Container::make('post_meta', 'Banner')
+    Container::make('post_meta', 'Text',__('Tekst'))
     ->where( 'post_type', '=', 'page' )
     ->where( 'post_id', '=', $kostenEnErelonenId)
     ->add_fields(array(
@@ -132,14 +132,14 @@ function acv_files()
         
     } else {
         if (is_front_page()) {
-            wp_enqueue_script('home-js', get_theme_file_uri('/dist/home.1841d1211597d32d4fc6.js'), null, '1.0', true);
+            wp_enqueue_script('home-js', get_theme_file_uri('/dist/home.13e50a329f3bee1cf298.js'), null, '1.0', true);
         }
         if (is_page(13)) {
-            wp_enqueue_script('home-js', get_theme_file_uri('/dist/practiceArea.6459c64661c33a3f797d.js'), null, '1.0', true);
+            wp_enqueue_script('home-js', get_theme_file_uri('/dist/practiceArea.cb0b636745b0af60d172.js'), null, '1.0', true);
         }
-        wp_enqueue_script('our-vendors-js', get_theme_file_uri('/dist/vendors.9e38b464c6727737ca67.js'), null, '1.0', true);
-        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.fd3ab432959942be314c.js'), null, '1.0', true);
-        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.fd3ab432959942be314c.css'));
+        wp_enqueue_script('our-vendors-js', get_theme_file_uri('/dist/vendors.ecbc6029b41b703c7754.js'), null, '1.0', true);
+        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.1332d75da9fe79845e78.js'), null, '1.0', true);
+        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.1332d75da9fe79845e78.css'));
     }
 }
 

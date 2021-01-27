@@ -1,11 +1,35 @@
 .Accordion {
     &-header {
-        background: $cc-blue;
-        color: $white;
+        color: $cc-blue;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         cursor: pointer;
+        border-bottom: none;
+
+        padding-top: rem(10px);
+
+        &--active {
+            //  border-bottom: 1px solid $cc-blue;
+            padding-bottom: rem(10px);
+        }
+    }
+
+    &-item {
+        border-top: 1px solid $cc-blue;
+        margin-top: rem(10px);
+    }
+
+    &-item:first-of-type {
+        border-top: none;
+    }
+
+    &-header:first-of-type {
+    }
+
+    &-name {
+        @include font-size($heading-size-3);
+        margin-bottom: 0;
     }
 
     &-description {
@@ -13,12 +37,26 @@
         max-height: 0;
         opacity: 0;
         visibility: hidden;
-        transition: 0.4s all;
+        transition-property: max-height, opacity, visibility;
+        transition: 0.8s ease-in-out;
+        width: 95%;
 
         &--active {
             max-height: 1000px;
             visibility: visible;
             opacity: 1;
+            // padding-bottom: rem(10px);
         }
+    }
+
+    &-iconContainer {
+        margin-left: rem(10px);
+    }
+
+    &-icon {
+        transition: 0.4s all;
+    }
+    &-icon--active {
+        transform: rotate(-180deg);
     }
 }

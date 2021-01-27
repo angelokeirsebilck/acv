@@ -17,7 +17,7 @@ wp-content/themes/twenty*/
 
 # ignore composer dependency directories
 /vendor/
-
+/wp-content/themes/acv/vendor
 # ignore ai1wm-backups
 ai1wm-backups
 

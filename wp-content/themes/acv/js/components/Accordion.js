@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import reactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { CgArrowDownR } from 'react-icons/cg';
+import { IoIosArrowDown } from 'react-icons/io';
+import parse from 'html-react-parser';
 
 const Accordion = () => {
     const [data, setData] = useState();
@@ -46,9 +47,20 @@ const Accordion = () => {
 const AccordionItem = ({ name, description, active, clickHandler }) => {
     return (
         <div className='Accordion-item'>
-            <div className='Accordion-header' onClick={clickHandler}>
-                <div className='Accordion-name'>{name}</div>
-                <CgArrowDownR style={{ fontSize: 30 }} />
+            <div
+                className={
+                    active ? 'Accordion-header Accordion-header--active' : 'Accordion-header '
+                }
+                onClick={clickHandler}>
+                <h2 className='Accordion-name'>{name}</h2>
+                <div className='Accordion-iconContainer'>
+                    <IoIosArrowDown
+                        className={
+                            active ? 'Accordion-icon Accordion-icon--active' : 'Accordion-icon '
+                        }
+                        style={{ fontSize: 25 }}
+                    />
+                </div>
             </div>
             <div
                 className={
@@ -56,7 +68,7 @@ const AccordionItem = ({ name, description, active, clickHandler }) => {
                         ? 'Accordion-description Accordion-description--active'
                         : 'Accordion-description '
                 }>
-                {description}
+                {parse(description)}
             </div>
         </div>
     );
