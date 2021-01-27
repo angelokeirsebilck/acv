@@ -147,7 +147,7 @@ function acv_files()
             wp_enqueue_script('home-acv-js', 'http://localhost:3000/home.js', null, '1.0', true);
         }
         if (is_page(13)) {
-            wp_enqueue_script('home-acv-js', 'http://localhost:3000/practiceArea.js', null, '1.0', true);
+            wp_enqueue_script('practiceArea-acv-js', 'http://localhost:3000/practiceArea.js', null, '1.0', true);
         }
         
     } else {
@@ -155,7 +155,7 @@ function acv_files()
             wp_enqueue_script('home-js', get_theme_file_uri('/dist/home.91e2820943be0f16e51b.js'), null, '1.0', true);
         }
         if (is_page(13)) {
-            wp_enqueue_script('home-js', get_theme_file_uri('/dist/practiceArea.b459dcba7cff04813e6b.js'), null, '1.0', true);
+            wp_enqueue_script('practiceArea-js', get_theme_file_uri('/dist/practiceArea.b459dcba7cff04813e6b.js'), null, '1.0', true);
         }
         wp_enqueue_script('our-vendors-js', get_theme_file_uri('/dist/vendors.79d0413a3e98e624697c.js'), null, '1.0', true);
         wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.ae7a984673106ebd94b0.js'), null, '1.0', true);
