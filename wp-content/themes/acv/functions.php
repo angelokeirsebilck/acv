@@ -9,6 +9,31 @@ function crb_load() {
     \Carbon_Fields\Carbon_Fields::boot();
 }
 
+/* =Clean up the WordPress head
+------------------------------------------------- */
+
+    // remove header links
+    add_action('init', 'tjnz_head_cleanup');
+    function tjnz_head_cleanup() {
+        remove_action( 'wp_head', 'feed_links_extra', 3 );                      // Category Feeds
+        remove_action( 'wp_head', 'feed_links', 2 );                            // Post and Comment Feeds
+        remove_action( 'wp_head', 'rsd_link' );                                 // EditURI link
+        remove_action( 'wp_head', 'wlwmanifest_link' );                         // Windows Live Writer
+        remove_action( 'wp_head', 'index_rel_link' );                           // index link
+        remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );              // previous link
+        remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );               // start link
+        remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );   // Links for Adjacent Posts
+        remove_action( 'wp_head', 'wp_generator' );                             // WP version
+        if (!is_admin()) {
+            wp_deregister_script('jquery');                                     // De-Register jQuery
+            wp_register_script('jquery', '', '', '', true);                     // Register as 'empty', because we manually insert our script in header.php
+        }
+    }
+
+    // remove WP version from RSS
+    add_filter('the_generator', 'tjnz_rss_version');
+    function tjnz_rss_version() { return ''; }
+
 // Add Content custom fields to certain pages
 add_action('carbon_fields_register_fields', 'angelok_content_practice_area');
 function angelok_content_practice_area()
@@ -109,7 +134,7 @@ require get_theme_file_path('/inc/practice-area-route.php');
 function acv_files()
 {
     wp_enqueue_style('custom-google-fonts', '//fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swa');
-    wp_enqueue_script('font-awesome', '//kit.fontawesome.com/6be973a3b4.js');
+    wp_enqueue_script('font-awesome', '//kit.fontawesome.com/6be973a3b4.js',null,null,true);
 
     if (is_page('Contact')) {
         wp_enqueue_script('googleMap', '//maps.googleapis.com/maps/api/js?key=AIzaSyCEFUT6eYl3dSYwnYZ1GmjsuAsXFpzYhUU', null, '1.0', false);
@@ -131,14 +156,14 @@ function acv_files()
         
     } else {
         if (is_front_page()) {
-            wp_enqueue_script('home-js', get_theme_file_uri('/dist/home.13e50a329f3bee1cf298.js'), null, '1.0', true);
+            wp_enqueue_script('home-js', get_theme_file_uri('/dist/home.88a9b23928d5844d780e.js'), null, '1.0', true);
         }
         if (is_page(13)) {
-            wp_enqueue_script('home-js', get_theme_file_uri('/dist/practiceArea.cb0b636745b0af60d172.js'), null, '1.0', true);
+            wp_enqueue_script('home-js', get_theme_file_uri('/dist/practiceArea.319d80d9c152f0290cec.js'), null, '1.0', true);
         }
-        wp_enqueue_script('our-vendors-js', get_theme_file_uri('/dist/vendors.ecbc6029b41b703c7754.js'), null, '1.0', true);
-        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.1332d75da9fe79845e78.js'), null, '1.0', true);
-        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.1332d75da9fe79845e78.css'));
+        wp_enqueue_script('our-vendors-js', get_theme_file_uri('/dist/vendors.efb1dea6536c8b806215.js'), null, '1.0', true);
+        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.16c3c5c58912795093c2.js'), null, '1.0', true);
+        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.16c3c5c58912795093c2.css'));
     }
 }
 

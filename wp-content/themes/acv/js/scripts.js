@@ -1,7 +1,7 @@
-import '../scss/style.scss';
-
 // Vendor Scripts/Styles
 import 'swiper/swiper-bundle.css';
+
+import '../scss/style.scss';
 
 // Scripts
 import './modules/nav';

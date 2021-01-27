@@ -56,6 +56,8 @@
 
     &-sliderContainer {
         position: relative;
+        height: auto;
+        max-height: rem(592px);
     }
 
     .swiper-pagination {

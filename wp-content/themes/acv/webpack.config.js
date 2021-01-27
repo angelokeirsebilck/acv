@@ -3,6 +3,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const fse = require('fs-extra');
 
 const postCSSPlugins = [
@@ -161,6 +162,13 @@ if (currentTask == 'build' || currentTask == 'buildWatch') {
                 },
             },
         },
+        minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                extractComments: true,
+                parallel: true,
+            }),
+        ],
     };
     config.plugins.push(
         new CleanWebpackPlugin(),
