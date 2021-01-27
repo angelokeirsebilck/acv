@@ -100,8 +100,15 @@ let config = {
                     loader: 'babel-loader',
                     options: {
                         presets: [
+                            [
+                                '@babel/preset-env',
+                                {
+                                    targets: ['last 2 versions', 'not dead', '> 0.2%', 'not ie 11'],
+                                    useBuiltIns: 'entry',
+                                    corejs: 3,
+                                },
+                            ],
                             '@babel/preset-react',
-                            ['@babel/preset-env', { targets: { node: '12' } }],
                         ],
                     },
                 },
