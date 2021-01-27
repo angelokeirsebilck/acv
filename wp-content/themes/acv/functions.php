@@ -2,14 +2,6 @@
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
-// Load Carbon Fields
-add_action('after_setup_theme', 'crb_load');
-function crb_load()
-{
-    require_once('vendor/autoload.php');
-    \Carbon_Fields\Carbon_Fields::boot();
-}
-
 // Add Content custom fields to certain pages
 add_action('carbon_fields_register_fields', 'angelok_content_practice_area');
 function angelok_content_practice_area()
@@ -173,3 +165,11 @@ add_action('init', 'acv_register_menus');
 //             .interface-interface-skeleton { display: block; }
 //           </style>';
 // });
+
+// Load Carbon Fields
+add_action('after_setup_theme', 'crb_load');
+function crb_load()
+{
+    require_once('vendor/autoload.php');
+    \Carbon_Fields\Carbon_Fields::boot();
+}
