@@ -16,6 +16,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bootstrap": "^5.0.0-beta1",
+    "browserlist": "^1.0.1",
     "gsap": "^3.6.0",
     "html-react-parser": "^1.2.1",
     "prop-types": "^15.7.2",
@@ -53,5 +54,9 @@
     "webpack-cli": "^4.4.0",
     "webpack-dev-server": "^3.11.2",
     "webpack-manifest-plugin": "^3.0.0"
-  }
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 3%"
+  ]
 }
