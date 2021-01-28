@@ -59,7 +59,8 @@
     "webpack-manifest-plugin": "^3.0.0"
   },
   "browserslist": [
+    "and_chr >= 87",
     "last 2 version",
-    "> 3%"
+    "> 1%"
   ]
 }
