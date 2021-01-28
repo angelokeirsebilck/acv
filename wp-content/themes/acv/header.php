@@ -22,7 +22,7 @@
                         <span></span>
                         <span></span>
                     </div>
-                    <div class="Navigation-body">
+                    <div class="Navigation-body" style="top: -100%">
                         <nav class="Nav Nav--main">
                             <h2 class="invisible">Main Nav</h2>
                             <?php

@@ -158,8 +158,8 @@ function acv_files()
             wp_enqueue_script('home-js', get_theme_file_uri('/dist/practiceArea.eb15072ea7d480afb8fc.js'), null, '1.0', true);
         }
         wp_enqueue_script('our-vendors-js', get_theme_file_uri('/dist/vendors.5587b149abf356be05be.js'), null, '1.0', true);
-        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.54729675150e033bff6f.js'), null, '1.0', true);
-        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.54729675150e033bff6f.css'));
+        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.600dc8fddf36cfcbef3d.js'), null, '1.0', true);
+        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.600dc8fddf36cfcbef3d.css'));
     }
 }
 
