@@ -89,7 +89,7 @@ let config = {
         home: './js/home.js',
         practiceArea: './js/practiceArea.js',
     },
-    plugins: [new Dotenv()],
+    plugins: [new Dotenv({ path: './.env', safe: true })],
     module: {
         rules: [
             cssConfig,
@@ -184,7 +184,10 @@ if (currentTask == 'build' || currentTask == 'buildWatch') {
         new MiniCssExtractPlugin({ filename: 'styles.[chunkhash].css' }),
         new WebpackManifestPlugin({ publicPath: '' }),
         new RunAfterCompile(),
-        new Dotenv()
+        new Dotenv({
+            path: './.env',
+            safe: true,
+        })
     );
     config.resolve = {
         fallback: { path: require.resolve('path-browserify') },
