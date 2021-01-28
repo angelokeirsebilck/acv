@@ -5,10 +5,11 @@
         <div class="GoogleMaps-invisAddress invisible">
             <?php echo get_option('angelok_address') ?>
         </div>
-        <div class="GoogleMaps" id="GoogleMaps">
 
-        </div>
     </div>
+    <div class="GoogleMaps" id="GoogleMaps">
+
+</div>
 </main>
 
 <?php get_footer();

@@ -22,12 +22,21 @@
 
                             <a href="mailto:<?php echo get_option('admin_email') ?>" class="Footer-link"><?php echo get_option('admin_email') ?></a>
                         </div>
+                        <?php if (strlen(get_option('angelok_cellphone')) > 0) {?>
+                        <div class="Footer-item">
+                            <div class="Footer-iconContainer">
+                                <i class="fas fa-mobile-alt Footer-icon"></i>
+                            </div>
+                            <a href="tel:<?php echo get_option('angelok_cellphone') ?>" class="Footer-link"><?php echo get_option('angelok_cellphone') ?></a>
+                        </div>
+                        <?php } ?>
                         <?php if (strlen(get_option('angelok_phone')) > 0) {?>
                         <div class="Footer-item">
                             <div class="Footer-iconContainer">
                                 <i class="fas fa-phone-alt Footer-icon"></i>
                             </div>
                             <a href="tel:<?php echo get_option('angelok_phone') ?>" class="Footer-link"><?php echo get_option('angelok_phone') ?></a>
+
                         </div>
                         <?php } ?>
                         <?php if (strlen(get_option('angelok_fax')) > 0) {?>
