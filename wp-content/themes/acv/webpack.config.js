@@ -89,7 +89,7 @@ let config = {
         home: './js/home.js',
         practiceArea: './js/practiceArea.js',
     },
-    plugins: [new Dotenv({ path: './.env', safe: true })],
+    plugins: [],
     module: {
         rules: [
             cssConfig,
@@ -123,6 +123,12 @@ if (currentTask == 'devFast') {
     config.devtool = 'source-map';
     cssConfig.use.unshift('style-loader');
     sassConfig.use.unshift('style-loader');
+    config.plugins.push(
+        new Dotenv({
+            path: './.env',
+            safe: true,
+        })
+    );
     config.output = {
         filename: '[name].js',
         chunkFilename: '[name].js',
@@ -185,13 +191,10 @@ if (currentTask == 'build' || currentTask == 'buildWatch') {
         new WebpackManifestPlugin({ publicPath: '' }),
         new RunAfterCompile(),
         new Dotenv({
-            path: './.env',
+            path: './.env.prod',
             safe: true,
         })
     );
-    config.resolve = {
-        fallback: { path: require.resolve('path-browserify') },
-    };
 }
 
 module.exports = config;
