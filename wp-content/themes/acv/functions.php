@@ -152,7 +152,7 @@ function acv_files()
         
     } else {
         if (is_front_page()) {
-            wp_enqueue_script('home-js', get_theme_file_uri('/dist/home.7432b99b2638e56b4ea3.js'), null, '1.0', true);
+            wp_enqueue_script('home-js', get_theme_file_uri('/dist/home.f9dc9847e294ba35d83c.js'), null, '1.0', true);
         }
         if (is_page(13)) {
             wp_enqueue_script('practiceArea-js', get_theme_file_uri('/dist/practiceArea.c0e08707ef2afc186528.js'), null, '1.0', true);
