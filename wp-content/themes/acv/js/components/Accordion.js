@@ -11,6 +11,8 @@ const Accordion = () => {
 
     useEffect(() => {
         async function loadData() {
+            console.log('.env value', process.env.WP_API_URL);
+
             const result = await axios
                 .get(`${process.env.WP_API_URL}/wp-json/acv/v1/practiceArea`)
                 .then((response) => {
