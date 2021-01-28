@@ -152,14 +152,14 @@ function acv_files()
         
     } else {
         if (is_front_page()) {
-            wp_enqueue_script('home-js', get_theme_file_uri('/dist/home.88a9b23928d5844d780e.js'), null, '1.0', true);
+            wp_enqueue_script('home-js', get_theme_file_uri('/dist/home.cadae3b025223a1cfc20.js'), null, '1.0', true);
         }
         if (is_page(13)) {
-            wp_enqueue_script('home-js', get_theme_file_uri('/dist/practiceArea.319d80d9c152f0290cec.js'), null, '1.0', true);
+            wp_enqueue_script('home-js', get_theme_file_uri('/dist/practiceArea.9ea5df94666bd9a03c19.js'), null, '1.0', true);
         }
-        wp_enqueue_script('our-vendors-js', get_theme_file_uri('/dist/vendors.efb1dea6536c8b806215.js'), null, '1.0', true);
-        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.c6bc00a4d85a7e312999.js'), null, '1.0', true);
-        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.c6bc00a4d85a7e312999.css'));
+        wp_enqueue_script('our-vendors-js', get_theme_file_uri('/dist/vendors.f0877875d2313f1b88cf.js'), null, '1.0', true);
+        wp_enqueue_script('main-acv-js', get_theme_file_uri('/dist/scripts.8102dec7a42d7d3cac23.js'), null, '1.0', true);
+        wp_enqueue_style('our-main-styles', get_theme_file_uri('/dist/styles.8102dec7a42d7d3cac23.css'));
     }
 }
 

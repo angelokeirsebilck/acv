@@ -12,7 +12,7 @@ const Accordion = () => {
     useEffect(() => {
         async function loadData() {
             const result = await axios
-                .get('http://localhost/acv/wp-json/acv/v1/practiceArea')
+                .get(`${process.env.WP_API_URL}/wp-json/acv/v1/practiceArea`)
                 .then((response) => {
                     setData(response.data);
                 })
