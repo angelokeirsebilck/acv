@@ -101,10 +101,7 @@ let config = {
                     options: {
                         presets: [
                             '@babel/preset-react',
-                            [
-                                '@babel/preset-env',
-                                { debug: true, useBuiltIns: 'usage', corejs: 3.8 },
-                            ],
+                            ['@babel/preset-env', { targets: { node: '12' } }],
                         ],
                     },
                 },
