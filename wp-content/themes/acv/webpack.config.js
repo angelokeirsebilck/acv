@@ -5,7 +5,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const fse = require('fs-extra');
-const Dotenv = require('dotenv-webpack');
 
 const postCSSPlugins = [
     require('postcss-import'),
@@ -89,7 +88,7 @@ let config = {
         home: './js/home.js',
         practiceArea: './js/practiceArea.js',
     },
-    plugins: [new Dotenv()],
+    plugins: [],
     module: {
         rules: [
             cssConfig,
@@ -102,10 +101,7 @@ let config = {
                     options: {
                         presets: [
                             '@babel/preset-react',
-                            [
-                                '@babel/preset-env',
-                                { debug: true, useBuiltIns: 'usage', corejs: 3.8 },
-                            ],
+                            ['@babel/preset-env', { targets: { node: '12' } }],
                         ],
                     },
                 },
@@ -178,8 +174,7 @@ if (currentTask == 'build' || currentTask == 'buildWatch') {
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({ filename: 'styles.[chunkhash].css' }),
         new WebpackManifestPlugin({ publicPath: '' }),
-        new RunAfterCompile(),
-        new Dotenv()
+        new RunAfterCompile()
     );
 }
 
