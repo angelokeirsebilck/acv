@@ -1,19 +1,38 @@
 .Header {
-  height: $header-height;
-  background: $header-bg-color;
-  grid-area: header;
-  z-index: 3;
+    height: $header-height;
+    background: $header-bg-color;
+    grid-area: header;
+    z-index: 3;
 
-  > .container {
-    height: 100%;
-    padding-left: $container-padding;
-    padding-right: $container-padding;
-  }
+    > .container {
+        height: 100%;
+        padding-left: $container-padding;
+        padding-right: $container-padding;
+    }
 
-  &-container {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    justify-content: flex-end;
-  }
+    &-container {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        justify-content: flex-end;
+    }
+}
+
+.headroom {
+    transition: 0.4s all;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+
+    &--unpinned {
+        transform: translateY(-100%);
+    }
+
+    &--pinned {
+        visibility: visible;
+    }
+
+    &--not-top {
+    }
 }

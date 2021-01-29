@@ -1,4 +1,31 @@
 import gsap from 'gsap';
+import Headroom from 'headroom.js';
+
+const myElement = document.querySelector('Header');
+const options = {
+    classes: {
+        // when element is initialised
+        initial: 'Header',
+        // when scrolling up
+        pinned: 'Header--pinned',
+        // when scrolling down
+        unpinned: 'Header--unpinned',
+        // when above offset
+        top: 'Header--top',
+        // when below offset
+        notTop: 'Header--not-top',
+        // when at bottom of scroll area
+        bottom: 'Header--bottom',
+        // when not at bottom of scroll area
+        notBottom: 'Header--not-bottom',
+        // when frozen method has been called
+        frozen: 'Header--frozen',
+        // multiple classes are also supported with a space-separated list
+        pinned: 'Header--pinned ',
+    },
+};
+const headroom = new Headroom(myElement);
+headroom.init();
 
 const toggleDiv = document.querySelector('.Toggle');
 const html = document.querySelector('html');
@@ -19,10 +46,12 @@ tl.fromTo(
     '.Navigation-body',
     {
         top: '-100%',
+        visibility: 'hidden',
     },
     {
         top: top,
-        duration: 1,
+        visibility: 'visible',
+        duration: 0.5,
     },
     'background'
 ).fromTo(
@@ -32,9 +61,9 @@ tl.fromTo(
     },
     {
         opacity: 1,
-        stagger: 0.2,
+        stagger: 0.1,
     },
-    '-=0.5'
+    '-=0.25'
 );
 
 const animateIt = () => {
