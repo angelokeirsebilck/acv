@@ -1,6 +1,10 @@
 <section class="Block Block--homeBanner">
     <div class="HomeBanner">
         <div class="container px-4">
+            <div class="HomeBanner-mouseScrollContainer">
+                <div class="HomeBanner-mouseScrollDown"></div>
+            </div>
+
             <div class="row gx-5">
                 <div class="col-12 col-md-4 HomeBanner-textContent">
                     <h1 class="HomeBanner-title"><?php echo carbon_get_the_post_meta('homebanner_title'); ?>

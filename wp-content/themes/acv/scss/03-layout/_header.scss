@@ -34,5 +34,8 @@
     }
 
     &--not-top {
+        .HomeBanner-mouseScrollContainer {
+            opacity: 0;
+        }
     }
 }
