@@ -9,6 +9,11 @@
     transition: 0.4s all;
     font-weight: 500;
     border: 2px solid transparent;
+    outline: none;
+
+    &:focus {
+        outline: none;
+    }
 
     &--primary {
         background-color: $cc-blue;

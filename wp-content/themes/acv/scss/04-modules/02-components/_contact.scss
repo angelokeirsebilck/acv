@@ -43,4 +43,88 @@
             color: $cc-blue--light;
         }
     }
+
+    &-form {
+        margin-bottom: rem(30px);
+    }
+
+    &-fieldsContainer {
+        max-width: rem(400px);
+    }
+
+    &-field {
+        margin-bottom: 0;
+    }
+
+    &-input {
+        border: none;
+        outline: none;
+        height: rem(30px);
+        width: 100%;
+        border-bottom: 1px solid $cc-blue--dark;
+        transition: 0.4s all;
+
+        &--focus {
+            border-bottom: 1px solid $cc-blue--light;
+            outline: none;
+        }
+    }
+
+    &-label {
+        transform: translateY(20px);
+        position: relative;
+        z-index: 2;
+        pointer-events: none;
+        transition: 0.4s all;
+
+        &--focus {
+            transform: translateY(0);
+            color: $cc-blue--light;
+            font-size: rem(12px);
+        }
+    }
+
+    .wpcf7-form-control-wrap {
+        position: relative;
+        z-index: 1;
+    }
+
+    .wpcf7-acceptance .wpcf7-list-item {
+        margin: 0;
+    }
+
+    .wpcf7-response-output {
+        margin: 0 !important;
+        max-width: rem(400px);
+    }
+
+    .wpcf7-not-valid-tip {
+        font-size: rem(14px);
+    }
+
+    .wpcf7 form.invalid .wpcf7-response-output,
+    .wpcf7 form.unaccepted .wpcf7-response-output {
+        border-color: #e63946;
+    }
+
+    &-textarea {
+        border: none;
+        width: 100%;
+        border-bottom: 1px solid $cc-blue--dark;
+        transition: 0.4s all;
+
+        &--focus {
+            border-bottom: 1px solid $cc-blue--light;
+            outline: none;
+        }
+    }
+
+    // Remove autofill styles
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        transition: background-color 5000s;
+        -webkit-text-fill-color: $cc-blue--dark !important;
+    }
 }

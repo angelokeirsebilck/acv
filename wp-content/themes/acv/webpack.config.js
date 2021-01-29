@@ -29,6 +29,7 @@ class RunAfterCompile {
                 }
                 const homeRegex = new RegExp("/dist/home.+?'", 'g');
                 const practiceAreaRegex = new RegExp("/dist/practiceArea.+?'", 'g');
+                const contactRegex = new RegExp("/dist/contact.+?'", 'g');
                 const scriptsRegEx = new RegExp("/dist/scripts.+?'", 'g');
                 const vendorsRegEx = new RegExp("/dist/vendors.+?'", 'g');
                 const cssRegEx = new RegExp("/dist/styles.+?'", 'g');
@@ -38,8 +39,8 @@ class RunAfterCompile {
                     .replace(vendorsRegEx, `/dist/${manifest['vendors.js']}'`)
                     .replace(cssRegEx, `/dist/${manifest['scripts.css']}'`)
                     .replace(homeRegex, `/dist/${manifest['home.js']}'`)
-                    .replace(practiceAreaRegex, `/dist/${manifest['practiceArea.js']}'`);
-
+                    .replace(practiceAreaRegex, `/dist/${manifest['practiceArea.js']}'`)
+                    .replace(contactRegex, `/dist/${manifest['contact.js']}'`);
                 fse.writeFile('./functions.php', result, 'utf8', function (err) {
                     if (err) return console.log(err);
                 });
@@ -88,6 +89,7 @@ let config = {
         scripts: './js/scripts.js',
         home: './js/home.js',
         practiceArea: './js/practiceArea.js',
+        contact: './js/contact.js',
     },
     plugins: [],
     module: {
