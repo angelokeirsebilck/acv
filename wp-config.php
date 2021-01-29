@@ -100,5 +100,9 @@ if (! defined('ABSPATH')) {
     define('ABSPATH', __DIR__ . '/');
 }
 
+// WP Mail SMPT Settings
+define( 'WPMS_ON', true );
+define( 'WPMS_SMTP_PASS', $_ENV['WPMS_SMTP_PASS'] );
+
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';

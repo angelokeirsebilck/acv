@@ -1,0 +1,46 @@
+.Contact {
+    padding-top: rem(30px);
+
+    &-title {
+        @include font-size($heading-size-1);
+        margin-bottom: rem(25px);
+    }
+
+    &-intro {
+        max-width: rem(650px);
+    }
+
+    &-hr {
+        height: 3px;
+        width: 75px;
+        background: $cc-blue--light;
+        margin-top: rem(20px);
+        margin-bottom: rem(20px);
+    }
+    &-item {
+        display: flex;
+        margin-bottom: rem(8px);
+    }
+
+    &-iconContainer {
+        flex-basis: 1.5rem;
+        display: flex;
+        flex-direction: row;
+        flex-shrink: 0;
+    }
+
+    &-icon {
+        color: $cc-blue;
+        transform: translateY(3px);
+    }
+
+    &-link {
+        color: $cc-blue--dark;
+        text-decoration: none;
+        transition: 0.4s all;
+
+        &:hover {
+            color: $cc-blue--light;
+        }
+    }
+}

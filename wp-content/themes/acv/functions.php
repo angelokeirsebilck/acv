@@ -30,7 +30,25 @@ function crb_load() {
     add_filter('the_generator', 'tjnz_rss_version');
     function tjnz_rss_version() { return ''; }
 
-// Add Content custom fields to certain pages
+// Add contact custom fields
+add_action('carbon_fields_register_fields', 'angelok_content_contact');
+function angelok_content_contact()
+{
+    $contactId = get_page_by_path('contact')->ID;
+
+
+    Container::make('post_meta', 'Contact Inleiding')
+    ->where( 'post_type', '=', 'page' )
+    ->where( 'post_id', '=', $contactId)
+    ->add_fields(array(
+        Field::make('text', 'angelok_contact_title', __('Titel'))
+        ->set_required(true)
+        ->set_help_text('Gebruik &lt;br&gt; in de tekst om tekst op de volgende regel te plaatsen.'),
+        Field::make('rich_text', 'angelok_contact_intro', __('Tekst'))->set_required(true)
+    ));
+}
+
+// Add practice area custom fields
 add_action('carbon_fields_register_fields', 'angelok_content_practice_area');
 function angelok_content_practice_area()
 {
