@@ -35,21 +35,7 @@ add_filter( 'wpcf7_load_css', '__return_false' );
     add_filter('the_generator', 'tjnz_rss_version');
     function tjnz_rss_version() { return ''; }
 
-// Add Google Analytics to head
 
-function add_google_analytics() { ?>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-NL4PWJ8V92"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-
-		  gtag('config', 'G-NL4PWJ8V92');
-		</script>
-	<?php
-}
-
-add_action( 'wp_head', 'add_google_analytics', 10 );
 
 // Add contact custom fields
 add_action('carbon_fields_register_fields', 'angelok_content_contact');
