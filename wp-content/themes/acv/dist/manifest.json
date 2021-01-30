@@ -1,7 +1,8 @@
 {
-  "scripts.css": "styles.600dc8fddf36cfcbef3d.css",
-  "scripts.js": "scripts.600dc8fddf36cfcbef3d.js",
+  "scripts.css": "styles.f72fd59ee78dd5090cdc.css",
+  "scripts.js": "scripts.f72fd59ee78dd5090cdc.js",
   "home.js": "home.8d328706b37cf2a37301.js",
-  "practiceArea.js": "practiceArea.eb15072ea7d480afb8fc.js",
-  "vendors.js": "vendors.5587b149abf356be05be.js"
+  "practiceArea.js": "practiceArea.29fb062556cbba19e19a.js",
+  "contact.js": "contact.b5583ba116ee8eab7e38.js",
+  "vendors.js": "vendors.18117711ce21bd0a23c4.js"
 }
