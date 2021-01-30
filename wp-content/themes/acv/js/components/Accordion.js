@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { IoIosArrowDown } from 'react-icons/io';
 import parse from 'html-react-parser';
+import { Loader } from 'react-loaders';
 
 const Accordion = () => {
     const [data, setData] = useState();
@@ -28,20 +29,22 @@ const Accordion = () => {
 
     return (
         <div className='Accordion'>
-            {data != null
-                ? data.map((item, index) => {
-                      return (
-                          <AccordionItem
-                              key={index}
-                              id={index}
-                              name={item.name}
-                              active={index == clickedItemIndex ? true : false}
-                              description={item.description}
-                              clickHandler={() => setClickedItemIndex(index)}
-                          />
-                      );
-                  })
-                : null}
+            {data != null ? (
+                data.map((item, index) => {
+                    return (
+                        <AccordionItem
+                            key={index}
+                            id={index}
+                            name={item.name}
+                            active={index == clickedItemIndex ? true : false}
+                            description={item.description}
+                            clickHandler={() => setClickedItemIndex(index)}
+                        />
+                    );
+                })
+            ) : (
+                <Loader type='line-scale' active />
+            )}
         </div>
     );
 };

@@ -1,4 +1,9 @@
 .Accordion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     &-header {
         color: $cc-blue;
         display: flex;
