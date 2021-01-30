@@ -9,6 +9,11 @@ function crb_load() {
     \Carbon_Fields\Carbon_Fields::boot();
 }
 
+// Remove loading contact forms 7 css and js on all pages
+
+add_filter( 'wpcf7_load_js', '__return_false' );
+add_filter( 'wpcf7_load_css', '__return_false' );
+
 /* =Clean up the WordPress head
 ------------------------------------------------- */
 

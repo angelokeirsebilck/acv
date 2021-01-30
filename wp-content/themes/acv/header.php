@@ -2,6 +2,18 @@
 <html <?php language_attributes(); ?>>
 
 <head>
+    <?php
+    if (is_page(9)) {
+        if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
+            wpcf7_enqueue_scripts();
+          }
+           
+          if ( function_exists( 'wpcf7_enqueue_styles' ) ) {
+            wpcf7_enqueue_styles();
+          }
+    }
+?>
+
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1"> <?php wp_head(); ?>
 </head>
